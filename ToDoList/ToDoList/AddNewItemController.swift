@@ -21,10 +21,12 @@ class AddNewItemController: UIViewController {
     }
     
     @IBAction func backtToMain(){
-        let storeboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storeboard.instantiateViewController(withIdentifier: "view_controller")
-        navigationController?.pushViewController(viewController, animated: true)
-
+//        let storeboard = UIStoryboard(name: "Main", bundle: nil)
+//        let viewController = storeboard.instantiateViewController(withIdentifier: "view_controller")
+//        navigationController?.pushViewController(viewController, animated: true)
+        
+        let detailViewController = NewViewController(uiColor: UIColor.green, text: "SomeText")
+        navigationController?.pushViewController(detailViewController, animated: true)
     }
     
     @IBAction func didTapAdd(){

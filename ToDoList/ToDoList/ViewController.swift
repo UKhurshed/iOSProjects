@@ -164,15 +164,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-    func updateItem(item: ToDoListItem, newName: String){
-        item.name = newName
-        do {
-            try context.save()
-            getAll()
-        }catch{
-            
+        func updateItem(item: ToDoListItem, newName: String){
+            item.name = newName
+            do {
+                try context.save()
+                getAll()
+            }catch{
+                
+            }
         }
-    }
     
 }
 

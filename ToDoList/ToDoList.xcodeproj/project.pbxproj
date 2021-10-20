@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D3231BA52720470200E2CD02 /* NewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3231BA42720470200E2CD02 /* NewViewController.swift */; };
 		D3BCF4F227180F9300FF42DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BCF4F127180F9300FF42DA /* AppDelegate.swift */; };
 		D3BCF4F427180F9300FF42DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BCF4F327180F9300FF42DA /* SceneDelegate.swift */; };
 		D3BCF4F627180F9300FF42DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BCF4F527180F9300FF42DA /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D3231BA42720470200E2CD02 /* NewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewViewController.swift; sourceTree = "<group>"; };
 		D3BCF4EE27180F9300FF42DA /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3BCF4F127180F9300FF42DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3BCF4F327180F9300FF42DA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				D3BCF50D271812AD00FF42DA /* ToDoListItem */,
 				D3BCF4F127180F9300FF42DA /* AppDelegate.swift */,
 				D3BCF4F327180F9300FF42DA /* SceneDelegate.swift */,
+				D3231BA42720470200E2CD02 /* NewViewController.swift */,
 				D3BCF4F527180F9300FF42DA /* ViewController.swift */,
 				D3DB4F8A271B2C7200C50BF3 /* AddNewItemController.swift */,
 				D3BCF4F727180F9300FF42DA /* Main.storyboard */,
@@ -161,6 +164,7 @@
 				D3BCF4F627180F9300FF42DA /* ViewController.swift in Sources */,
 				D3BCF4F227180F9300FF42DA /* AppDelegate.swift in Sources */,
 				D3BCF4F427180F9300FF42DA /* SceneDelegate.swift in Sources */,
+				D3231BA52720470200E2CD02 /* NewViewController.swift in Sources */,
 				D3BCF50A2718125A00FF42DA /* ToDoListItem+CoreDataClass.swift in Sources */,
 				D3BCF50B2718125A00FF42DA /* ToDoListItem+CoreDataProperties.swift in Sources */,
 				D3BCF4FC27180F9300FF42DA /* ToDoList.xcdatamodeld in Sources */,
