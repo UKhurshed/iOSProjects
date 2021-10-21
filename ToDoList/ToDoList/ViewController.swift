@@ -7,55 +7,11 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return models.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model = models[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = model.name
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let item = models[indexPath.row]
-        let sheet = UIAlertController(title: "Edit", message: nil, preferredStyle: .actionSheet)
-        sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        sheet.addAction(UIAlertAction(title: "Edit", style: .default, handler: {_ in
-            let alert = UIAlertController(title: "Edit Item", message: "Edit item", preferredStyle: .alert)
-            alert.addTextField(configurationHandler: nil)
-            alert.textFields?.first?.text = item.name
-            alert.addAction(UIAlertAction(title: "Save", style: .cancel, handler: { [weak self] _ in
-                guard let field = alert.textFields?.first, let newText = field.text, !newText.isEmpty else{
-                    return
-                }
-                self?.updateItem(item: item, newName: newText)
-            }))
-            self.present(alert, animated: true)
-        }))
-        sheet.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { [weak self] _ in
-            self?.deleteItem(item: item)
-        }))
-        present(sheet, animated: true)
-    }
-    
-    
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
-    let tableView: UITableView = {
-        let table = UITableView()
-        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        return table
-    }()
-    
-    private var models = [ToDoListItem]()
-    
+class ViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
+<<<<<<< HEAD
       
         print("Model:",isEmptyModel())
         
@@ -174,5 +130,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         }
     
+=======
+        // Do any additional setup after loading the view.
+    }
+
+
+>>>>>>> parent of a579aa3 (ToDoList is completed)
 }
 
