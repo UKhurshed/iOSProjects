@@ -14,6 +14,8 @@
 		D3C6A9552726E7D70035801A /* info_systems_problem.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D3C6A9532726E7D70035801A /* info_systems_problem.xcdatamodeld */; };
 		D3C6A9572726E7D90035801A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3C6A9562726E7D90035801A /* Assets.xcassets */; };
 		D3C6A95A2726E7D90035801A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3C6A9582726E7D90035801A /* LaunchScreen.storyboard */; };
+		D3C6A9622727CD5D0035801A /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C6A9612727CD5D0035801A /* APICaller.swift */; };
+		D3C6A9642727DAB40035801A /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C6A9632727DAB40035801A /* NewsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		D3C6A9562726E7D90035801A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3C6A9592726E7D90035801A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3C6A95B2726E7D90035801A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3C6A9612727CD5D0035801A /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		D3C6A9632727DAB40035801A /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,8 @@
 				D3C6A94A2726E7D70035801A /* AppDelegate.swift */,
 				D3C6A94C2726E7D70035801A /* SceneDelegate.swift */,
 				D3C6A94E2726E7D70035801A /* ViewController.swift */,
+				D3C6A9632727DAB40035801A /* NewsTableViewCell.swift */,
+				D3C6A9612727CD5D0035801A /* APICaller.swift */,
 				D3C6A9502726E7D70035801A /* Main.storyboard */,
 				D3C6A9562726E7D90035801A /* Assets.xcassets */,
 				D3C6A9582726E7D90035801A /* LaunchScreen.storyboard */,
@@ -143,7 +149,9 @@
 			files = (
 				D3C6A9552726E7D70035801A /* info_systems_problem.xcdatamodeld in Sources */,
 				D3C6A94F2726E7D70035801A /* ViewController.swift in Sources */,
+				D3C6A9642727DAB40035801A /* NewsTableViewCell.swift in Sources */,
 				D3C6A94B2726E7D70035801A /* AppDelegate.swift in Sources */,
+				D3C6A9622727CD5D0035801A /* APICaller.swift in Sources */,
 				D3C6A94D2726E7D70035801A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
