@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D31C1D6A272913E20062330A /* Article+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31C1D68272913E20062330A /* Article+CoreDataClass.swift */; };
+		D31C1D6B272913E20062330A /* Article+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31C1D69272913E20062330A /* Article+CoreDataProperties.swift */; };
 		D3C6A94B2726E7D70035801A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C6A94A2726E7D70035801A /* AppDelegate.swift */; };
 		D3C6A94D2726E7D70035801A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C6A94C2726E7D70035801A /* SceneDelegate.swift */; };
 		D3C6A94F2726E7D70035801A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C6A94E2726E7D70035801A /* ViewController.swift */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D31C1D68272913E20062330A /* Article+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Article+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D31C1D69272913E20062330A /* Article+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Article+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D3C6A9472726E7D70035801A /* info_systems_problem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = info_systems_problem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3C6A94A2726E7D70035801A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3C6A94C2726E7D70035801A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +47,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D31C1D6C272913F40062330A /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				D31C1D68272913E20062330A /* Article+CoreDataClass.swift */,
+				D31C1D69272913E20062330A /* Article+CoreDataProperties.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		D3C6A93E2726E7D70035801A = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +75,7 @@
 		D3C6A9492726E7D70035801A /* info_systems_problem */ = {
 			isa = PBXGroup;
 			children = (
+				D31C1D6C272913F40062330A /* CoreData */,
 				D3C6A94A2726E7D70035801A /* AppDelegate.swift */,
 				D3C6A94C2726E7D70035801A /* SceneDelegate.swift */,
 				D3C6A94E2726E7D70035801A /* ViewController.swift */,
@@ -149,7 +163,9 @@
 			files = (
 				D3C6A9552726E7D70035801A /* info_systems_problem.xcdatamodeld in Sources */,
 				D3C6A94F2726E7D70035801A /* ViewController.swift in Sources */,
+				D31C1D6A272913E20062330A /* Article+CoreDataClass.swift in Sources */,
 				D3C6A9642727DAB40035801A /* NewsTableViewCell.swift in Sources */,
+				D31C1D6B272913E20062330A /* Article+CoreDataProperties.swift in Sources */,
 				D3C6A94B2726E7D70035801A /* AppDelegate.swift in Sources */,
 				D3C6A9622727CD5D0035801A /* APICaller.swift in Sources */,
 				D3C6A94D2726E7D70035801A /* SceneDelegate.swift in Sources */,

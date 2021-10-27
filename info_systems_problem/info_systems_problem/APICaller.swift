@@ -6,12 +6,16 @@
 //
 
 import Foundation
+import UIKit
 
 final class APICaller{
     static let shared = APICaller()
     
+    private let viewContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     struct Contracts{
-        static let topHeadlinesURL = URL(string: "https://newsapi.org/v2/top-headlines?country=us&apiKey=fc9c93a0395d4d82ac5d3c736f184179")
+        static let topHeadlinesURL = URL(string: "https://newsapi.org/v2/top-headlines?country=ru&apiKey=fc9c93a0395d4d82ac5d3c736f184179&category=health")
     }
     
     private init(){}
