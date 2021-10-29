@@ -16,6 +16,9 @@ class ViewController: UIViewController {
     
     private var viewModel = [NewsTableViewCellViewModel]()
     private var articles = [Articles]()
+    var sourceStr = ""
+    private let searchVC = UISearchController(searchResultsController: nil)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,12 +29,28 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        fetchTopStories()
+        fetchTopStories(source: sourceStr)
+        searchBar()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(sourceScreen))
+    }
+    
+    @objc func sourceScreen(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "source_vc")
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("viewDidAppear worked: \(self.sourceStr.lowercased())")
+        let query = self.sourceStr.lowercased()
+        fetchTopStories(source: query)
         
     }
     
-    private func fetchTopStories(){
-        APICaller.shared.getTopStories{ [weak self] result in
+    private func fetchTopStories(source: String){
+        APICaller.shared.getTopStories(with: source){ [weak self] result in
             switch result {
             case .success(let articles):
                 self?.articles = articles
@@ -46,6 +65,20 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    private func searchBar(){
+        navigationItem.searchController = searchVC
+        searchVC.searchBar.delegate = self
+    }
+    
+    private func emptyAlert(){
+        let alert = UIAlertController(title: "Empty Alert", message: "Please choose Source or Search News", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true)
+    }
 }
 
 extension ViewController: UITableViewDelegate{
@@ -54,8 +87,16 @@ extension ViewController: UITableViewDelegate{
 
 extension ViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.count
+        if viewModel.count == 0{
+            self.emptyAlert()
+            return 0
+        }else{
+            
+            return viewModel.count
+        }
+        
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: NewsTableViewCell.identifier, for: indexPath) as? NewsTableViewCell else {
@@ -78,7 +119,32 @@ extension ViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150 
+        return 150
+    }
+}
+
+extension ViewController: UISearchBarDelegate{
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text, !text.isEmpty else{
+            return
+        }
+        
+        APICaller.shared.getNewsByQuery(with: text){ [weak self] result in
+            switch result {
+            case .success(let articles):
+                self?.articles = articles
+                self?.viewModel = articles.compactMap({
+                    NewsTableViewCellViewModel(title: $0.title, subtitle: $0.description ?? "No description", imageUrl: URL(string: $0.urlToImage ?? ""))
+                })
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                    self?.searchVC.dismiss(animated: true, completion: nil)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+        print(text)
     }
 }
 

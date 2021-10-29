@@ -6,7 +6,11 @@
         <attribute name="title" optional="YES" attributeType="String"/>
         <attribute name="urlToImage" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="SourceItemEntity" representedClassName="SourceItemEntity" syncable="YES">
+        <attribute name="itemName" optional="YES" attributeType="String"/>
+    </entity>
     <elements>
         <element name="ArticleEntity" positionX="-63" positionY="-18" width="128" height="89"/>
+        <element name="SourceItemEntity" positionX="-63" positionY="9" width="128" height="44"/>
     </elements>
 </model>
