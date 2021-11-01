@@ -37,7 +37,8 @@ final class APICaller{
             else if let data = data {
                 do {
                     let result = try JSONDecoder().decode(APIResponse.self, from: data)
-                    
+                    let api = APIResponse(articles: result.articles)
+                    api.saveItem(source)
                     print("Articles: \(result.articles.count)")
                     completion(.success(result.articles))
                 }catch{
@@ -63,7 +64,8 @@ final class APICaller{
             else if let data = data {
                 do {
                     let result = try JSONDecoder().decode(APIResponse.self, from: data)
-                    
+                    let api = APIResponse(articles: result.articles)
+                    api.saveItem(query)
                     print("Articles: \(result.articles.count)")
                     completion(.success(result.articles))
                 }catch{
@@ -79,6 +81,10 @@ final class APICaller{
 
 struct APIResponse: Codable{
     let articles: [Articles]
+    
+    func saveItem(_ fileName: String){
+        DataManager.save(self, with: fileName)
+    }
 }
 
 struct Articles: Codable{

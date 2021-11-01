@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     private var viewModel = [NewsTableViewCellViewModel]()
     private var articles = [Articles]()
     var sourceStr = ""
+    private var flag = false
     private let searchVC = UISearchController(searchResultsController: nil)
     
     
@@ -29,10 +30,40 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        fetchTopStories(source: sourceStr)
-        searchBar()
+        if NetworkManager.shared.isConnected{
+            print("connected")
+            fetchTopStories(source: sourceStr)
+            searchBar()
+        }else{
+            print("is not connection")
+            fetchCachedData()
+        }
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(sourceScreen))
+    }
+    
+    private func fetchCachedData(){
+        let loadAllData = DataManager.loadAll(APIResponse.self)
+        print(loadAllData.last?.articles)
+        articles = loadAllData.last?.articles ?? []
+        viewModel = articles.compactMap({
+            NewsTableViewCellViewModel(title: $0.title, subtitle: $0.description ?? "No description", imageUrl: URL(string: $0.urlToImage ?? ""))
+        })
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    override func loadView() {
+        super.loadView()
+        print("loadView")
+        if(viewModel.count == 0){
+            print("viewModel is Empty")
+            flag = false
+        }else{
+            print("viewModel is not Empty")
+            flag = true
+        }
     }
     
     @objc func sourceScreen(){
@@ -43,8 +74,8 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("viewDidAppear worked: \(self.sourceStr.lowercased())")
-        let query = self.sourceStr.lowercased()
+        let query = UserDefaults.standard.string(forKey: "sourceKey") ?? ""
+        print("viewDidAppear worked: \(query)")
         fetchTopStories(source: query)
         
     }
@@ -54,6 +85,7 @@ class ViewController: UIViewController {
             switch result {
             case .success(let articles):
                 self?.articles = articles
+                
                 self?.viewModel = articles.compactMap({
                     NewsTableViewCellViewModel(title: $0.title, subtitle: $0.description ?? "No description", imageUrl: URL(string: $0.urlToImage ?? ""))
                 })
@@ -87,11 +119,10 @@ extension ViewController: UITableViewDelegate{
 
 extension ViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if viewModel.count == 0{
+        if flag == true{
             self.emptyAlert()
             return 0
         }else{
-            
             return viewModel.count
         }
         

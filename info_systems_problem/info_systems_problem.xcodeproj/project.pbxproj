@@ -10,6 +10,8 @@
 		D31C1D6A272913E20062330A /* Article+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31C1D68272913E20062330A /* Article+CoreDataClass.swift */; };
 		D31C1D6B272913E20062330A /* Article+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31C1D69272913E20062330A /* Article+CoreDataProperties.swift */; };
 		D31F74FD272A522300421A9C /* SourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31F74FC272A522300421A9C /* SourceViewController.swift */; };
+		D335C2A927304D9700120F2F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D335C2A827304D9700120F2F /* NetworkManager.swift */; };
+		D335C2AB2730530C00120F2F /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D335C2AA2730530C00120F2F /* DataManager.swift */; };
 		D3BDB49A272B15120046F534 /* SourceItemEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BDB498272B15120046F534 /* SourceItemEntity+CoreDataClass.swift */; };
 		D3BDB49B272B15120046F534 /* SourceItemEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BDB499272B15120046F534 /* SourceItemEntity+CoreDataProperties.swift */; };
 		D3C6A94B2726E7D70035801A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C6A94A2726E7D70035801A /* AppDelegate.swift */; };
@@ -27,6 +29,8 @@
 		D31C1D68272913E20062330A /* Article+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Article+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D31C1D69272913E20062330A /* Article+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Article+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D31F74FC272A522300421A9C /* SourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceViewController.swift; sourceTree = "<group>"; };
+		D335C2A827304D9700120F2F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		D335C2AA2730530C00120F2F /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		D3BDB498272B15120046F534 /* SourceItemEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SourceItemEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D3BDB499272B15120046F534 /* SourceItemEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SourceItemEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D3C6A9472726E7D70035801A /* info_systems_problem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = info_systems_problem.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +94,8 @@
 				D31F74FC272A522300421A9C /* SourceViewController.swift */,
 				D3C6A9632727DAB40035801A /* NewsTableViewCell.swift */,
 				D3C6A9612727CD5D0035801A /* APICaller.swift */,
+				D335C2A827304D9700120F2F /* NetworkManager.swift */,
+				D335C2AA2730530C00120F2F /* DataManager.swift */,
 				D3C6A9502726E7D70035801A /* Main.storyboard */,
 				D3C6A9562726E7D90035801A /* Assets.xcassets */,
 				D3C6A9582726E7D90035801A /* LaunchScreen.storyboard */,
@@ -170,6 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D335C2A927304D9700120F2F /* NetworkManager.swift in Sources */,
 				D3BDB49A272B15120046F534 /* SourceItemEntity+CoreDataClass.swift in Sources */,
 				D3C6A9552726E7D70035801A /* info_systems_problem.xcdatamodeld in Sources */,
 				D3BDB49B272B15120046F534 /* SourceItemEntity+CoreDataProperties.swift in Sources */,
@@ -180,6 +187,7 @@
 				D31F74FD272A522300421A9C /* SourceViewController.swift in Sources */,
 				D3C6A94B2726E7D70035801A /* AppDelegate.swift in Sources */,
 				D3C6A9622727CD5D0035801A /* APICaller.swift in Sources */,
+				D335C2AB2730530C00120F2F /* DataManager.swift in Sources */,
 				D3C6A94D2726E7D70035801A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

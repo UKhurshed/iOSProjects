@@ -166,20 +166,6 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Yu-yz-bAN">
-                                <rect key="frame" x="137" y="731" width="140.5" height="46"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Main Page">
-                                    <backgroundConfiguration key="background" cornerRadius="16">
-                                        <color key="backgroundColor" systemColor="tintColor"/>
-                                    </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="26"/>
-                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="mainPageBtn" destination="APO-lX-5TN" eventType="touchUpInside" id="plK-vR-iml"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4Zo-UI-vyS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -188,11 +174,8 @@
                             <constraint firstItem="uHF-m9-4kT" firstAttribute="leading" secondItem="4Zo-UI-vyS" secondAttribute="leading" constant="163" id="ChZ-RC-rvG"/>
                             <constraint firstItem="rwf-js-6RW" firstAttribute="top" secondItem="4Zo-UI-vyS" secondAttribute="top" id="H0g-q1-H2p"/>
                             <constraint firstItem="uHF-m9-4kT" firstAttribute="top" secondItem="rwf-js-6RW" secondAttribute="bottom" constant="20" id="H5Q-Gm-bgr"/>
-                            <constraint firstItem="0Yu-yz-bAN" firstAttribute="top" secondItem="gCU-Bt-knA" secondAttribute="bottom" constant="89" id="HzE-ah-R89"/>
                             <constraint firstItem="gCU-Bt-knA" firstAttribute="leading" secondItem="4Zo-UI-vyS" secondAttribute="leading" constant="110" id="LZR-mz-xyp"/>
-                            <constraint firstItem="4Zo-UI-vyS" firstAttribute="bottom" secondItem="0Yu-yz-bAN" secondAttribute="bottom" constant="85" id="RW5-RX-YQO"/>
                             <constraint firstItem="rwf-js-6RW" firstAttribute="leading" secondItem="4Zo-UI-vyS" secondAttribute="leading" constant="110" id="RWH-SV-1JS"/>
-                            <constraint firstItem="0Yu-yz-bAN" firstAttribute="leading" secondItem="4Zo-UI-vyS" secondAttribute="leading" constant="137" id="U4H-aG-ONv"/>
                             <constraint firstItem="4Zo-UI-vyS" firstAttribute="trailing" secondItem="rwf-js-6RW" secondAttribute="trailing" constant="109" id="X9n-i8-ZAh"/>
                             <constraint firstItem="gCU-Bt-knA" firstAttribute="top" secondItem="uHF-m9-4kT" secondAttribute="bottom" constant="20" id="Z4R-8G-Yk2"/>
                             <constraint firstItem="4Zo-UI-vyS" firstAttribute="trailing" secondItem="uHF-m9-4kT" secondAttribute="trailing" constant="154" id="aXm-M9-Xw3"/>
@@ -256,9 +239,6 @@
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="tintColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
