@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     
     private var viewModel = [NewsTableViewCellViewModel]()
     private var articles = [Articles]()
+    var sections = [ArcticleSection]()
     var sourceStr = ""
     private var flag = false
     private let searchVC = UISearchController(searchResultsController: nil)
@@ -87,7 +88,7 @@ class ViewController: UIViewController {
                 self?.articles = articles
                 
                 self?.viewModel = articles.compactMap({
-                    NewsTableViewCellViewModel(title: $0.title, subtitle: $0.description ?? "No description", imageUrl: URL(string: $0.urlToImage ?? ""))
+                    NewsTableViewCellViewModel(title: $0.title, subtitle: $0.description ?? "No description", imageUrl: URL(string: $0.urlToImage ?? ""), publishedAt: self!.parseDate($0.publishedAt))
                 })
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
@@ -111,6 +112,22 @@ class ViewController: UIViewController {
         
         self.present(alert, animated: true)
     }
+    func parseDate(_ str: String) -> Date{
+        let dateFormat = DateFormatter()
+        dateFormat.dateFormat = "yyyy-MM-dd"
+        return dateFormat.date(from: str)!
+    }
+    
+    private func firstDayOfMonth(date: Date) -> Date {
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month], from: date)
+        return calendar.date(from: components)!
+    }
+}
+
+struct ArcticleSection{
+    var date: Date
+    var articles: [Articles]
 }
 
 extension ViewController: UITableViewDelegate{
@@ -118,14 +135,19 @@ extension ViewController: UITableViewDelegate{
 }
 
 extension ViewController: UITableViewDataSource{
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if flag == true{
             self.emptyAlert()
             return 0
         }else{
-            return viewModel.count
-        }
+            let section = self.sections[section]
+            return section.articles.count
         
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return self.sections.count
     }
     
     
@@ -152,6 +174,14 @@ extension ViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let section = self.sections[section]
+        let date = section.date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.string(from: date)
+    }
 }
 
 extension ViewController: UISearchBarDelegate{
@@ -160,13 +190,19 @@ extension ViewController: UISearchBarDelegate{
             return
         }
         
+        
         APICaller.shared.getNewsByQuery(with: text){ [weak self] result in
             switch result {
             case .success(let articles):
                 self?.articles = articles
                 self?.viewModel = articles.compactMap({
-                    NewsTableViewCellViewModel(title: $0.title, subtitle: $0.description ?? "No description", imageUrl: URL(string: $0.urlToImage ?? ""))
+                    NewsTableViewCellViewModel(title: $0.title, subtitle: $0.description ?? "No description", imageUrl: URL(string: $0.urlToImage ?? ""), publishedAt: self!.parseDate($0.publishedAt))
                 })
+                let groups = Dictionary(grouping: self!.viewModel) { (article) -> Date in
+                    return self!.firstDayOfMonth(date: article.publishedAt)
+                }
+                
+                self.sections = groups.map(ArcticleSection.init(date: <#T##Date#>, articles: <#T##[Articles]#>))
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
                     self?.searchVC.dismiss(animated: true, completion: nil)

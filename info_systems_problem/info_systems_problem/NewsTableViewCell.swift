@@ -11,16 +11,19 @@ class NewsTableViewCellViewModel{
     let title: String
     let subtitle: String
     let imageUrl: URL?
+    let publishedAt: Date
     var imageData: Data? = nil
     
     init(
         title: String,
         subtitle: String,
-        imageUrl: URL?
+        imageUrl: URL?,
+        publishedAt: Date
     ){
         self.title = title
         self.subtitle = subtitle
         self.imageUrl = imageUrl
+        self.publishedAt = publishedAt
     }
 }
 
